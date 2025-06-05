@@ -33,9 +33,10 @@ const Body = () => {  // hmara abhi tak refresh krne m feed page khulri thi even
   //   return<Error/>
   // }
   return (
-    <div>
+    <div className=' h-full w-full'>
         <Navbar/>
         <Outlet/>
+        <Footer/>
     </div>
   )
 }

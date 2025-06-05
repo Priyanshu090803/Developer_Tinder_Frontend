@@ -10,7 +10,7 @@ import Profile from './Components/Profile'
 
 const App = () => {
   return (
-    <div  data-theme="light" className=" w-full h-full" >
+    <div  data-theme="light" className=" w-full h-full " >
       <Provider store={appStore }>
       <BrowserRouter basename='/'>
       <Routes>
