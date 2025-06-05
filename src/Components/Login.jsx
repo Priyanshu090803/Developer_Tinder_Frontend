@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -13,7 +13,7 @@ import { Label } from "@/components/ui/label"
 import { cn } from '@/lib/utils'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { addUser } from '@/utils/userSlice'
+import { addUser, removeUser } from '@/utils/userSlice'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '@/utils/constants'
 
@@ -24,6 +24,7 @@ const Login = () => {
   const dispatch = useDispatch()
   const[emailId,setEmailId]= useState("priyanshu@gmail.com")
   const[password,setPassword]= useState("Priyanshu@123")
+  const[loginError,SetLoginError] = useState("")
   const handleLogin = async()=>{
    try {
     const res= await axios.post(BASE_URL+"/login",{
@@ -31,12 +32,16 @@ const Login = () => {
       password
     },{withCredentials:true})     // cookie milegi ye true krke
    
-    dispatch(addUser(res.data))
+    dispatch(addUser(res.data))   // ye dispatch login hone m lgega
     return navigate("/")
    } catch (error) {
-    console.error("Login",error)
+    SetLoginError(error?.response?.data || "Something went wrong")
+    // console.error("Login",error)
    }
   }
+  useEffect(()=>{
+    dispatch(removeUser())
+  },[])
   return(
     <div className=' flex justify-center md:py-28 pt-16 w-full px-4'>
     <Card className="w-full max-w-sm  bg-neutral-50/80 backdrop-blur-lg ">
@@ -87,6 +92,8 @@ const Login = () => {
              }}
               />
             </div>
+      <span className=' text-red-600 underline text-sm  md:text-base '>{loginError}</span>
+
           </div>
         </form>
       </CardContent>
