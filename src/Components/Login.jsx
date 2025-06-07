@@ -39,9 +39,7 @@ const Login = () => {
     // console.error("Login",error)
    }
   }
-  useEffect(()=>{
-    dispatch(removeUser())
-  },[])
+  
   return(
     <div className=' flex justify-center md:py-28 pt-16 w-full px-4'>
     <Card className="w-full max-w-sm  bg-neutral-50/80 backdrop-blur-lg ">

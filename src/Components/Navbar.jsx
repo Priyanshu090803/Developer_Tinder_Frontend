@@ -35,7 +35,7 @@ const Navbar = () => {
   
   <ul
     tabIndex={0}
-    className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow text flex flex-col gap- bg-gradient-to-r from-gray-50 to-pink-50">
+    className="menu menu-sm dropdown-content  rounded-box z-[1] mt-3 w-52 p-2 shadow text flex flex-col gap-2 bg-gradient-to-r from-gray-50 to-pink-50">
       <div className=' flex justify-between'>
       <Link
       to={'/profile'}
@@ -44,7 +44,8 @@ const Navbar = () => {
       </Link>
         <span className="badge ml-10">New</span>
     </div>
-  <Link className=' md:text-lg text-base'>Settings</Link>
+  <Link className=' md:text-lg text-base' to={'/connections'}>Connections</Link>
+  <Link className=' md:text-lg text-base' to={'/requests'}>Requests Received</Link>
   <Link className=' md:text-lg text-base' to={'/login'}
   onClick={handleLogOut}
   >Logout</Link>

@@ -24,7 +24,8 @@ const Feed = () => {
   useEffect(()=>{
     userFeed()
   },[])
-
+if (!users) return
+if(users.length ===0) return(<h2 className=' absolute left-1/2 -translate-x-1/2 top-30 text-2xl md:text-4xl text-red-600 uppercase text-center  font-bold'>No new users found</h2>)
 return (
   <div className="relative h-screen w-full overflow-y-scroll snap-y snap-mandatory bg-gradient-to-b from-zinc-50 to-neutral-50">
     {users.map((user) => (

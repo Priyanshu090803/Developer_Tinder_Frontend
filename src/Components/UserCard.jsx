@@ -1,6 +1,21 @@
+import { BASE_URL } from '@/utils/constants'
+import { removeUserFromFeed } from '@/utils/feedSlice'
+import axios from 'axios'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 
 const UserCard = ({user}) => {
+  const dispatch = useDispatch()
+   const handleSendRequest =async(status,_id)=>{ 
+    try {
+      const res = await axios.post(BASE_URL+"/sendConnectionReq/send/"+status+"/"+_id,{},{
+        withCredentials:true
+      })
+      dispatch(removeUserFromFeed(_id))
+    } catch (error) {
+      console.log(error)
+    }
+  }
     const {firstName,lastName,photoUrl,age,gender,about,skills} = user
       const skillsArray = typeof skills === 'string' ? 
         skills.split(',').map(skill => skill.trim()) : 
@@ -61,11 +76,16 @@ const UserCard = ({user}) => {
             </div>
             
             <div className="flex space-x-4">
-              <button className=" cursor-pointer flex-1 bg-gradient-to-r from-amber-400 to-rose-400 hover:from-amber-500 hover:to-rose-500 text-white py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
-                Send Hug
+              <button 
+              onClick={()=>handleSendRequest("interested",user._id)}
+              className=" cursor-pointer flex-1 bg-gradient-to-r from-amber-400 to-rose-400 hover:from-amber-500 hover:to-rose-500 text-white py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
+                Interested
               </button>
-              <button className=" cursor-pointer flex-1 border-2 border-amber-300 text-amber-700 hover:bg-amber-50 py-3 px-6 rounded-full transition-all duration-300">
-                Whisper
+              <button 
+              onClick={()=>handleSendRequest("rejected",user._id)}
+              
+              className=" cursor-pointer flex-1 border-2 border-amber-300 text-amber-700 hover:bg-amber-50 py-3 px-6 rounded-full transition-all duration-300">
+               Ignore
               </button>
             </div>
           </div>

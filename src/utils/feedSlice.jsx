@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { act } from "react"
 
 const feedSlice= createSlice({
     name:'feed',
@@ -7,9 +6,13 @@ const feedSlice= createSlice({
     reducers:{
         addFeed:(state,action)=>{
             return action.payload
+        },
+        removeUserFromFeed:(state,action)=>{
+            const NewFeed = state.filter((user)=>user._id !==action.payload)
+            return NewFeed
         }
     }
 })
 
-export const{addFeed}= feedSlice.actions
+export const{addFeed,removeUserFromFeed}= feedSlice.actions
 export default feedSlice.reducer
