@@ -2,7 +2,7 @@ import { BASE_URL } from '@/utils/constants'
 import { removeUser } from '@/utils/userSlice'
 import axios from 'axios'
 import { motion } from 'motion/react'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -17,6 +17,7 @@ const Navbar = () => {
       console.error(error)
     }
   }
+  
   return (
 <div className="sticky top-0 z-50 w-full md:px-10 px-4 shadow-sm rounded-lg py-2 h-16 flex justify-between bg-neutral-50/80 backdrop-blur-lg items-center">
   {/* Your navbar content */}

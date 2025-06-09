@@ -12,7 +12,7 @@ import Requests from './Components/Requests'
 
 const App = () => {
   return (
-    <div  data-theme="light" className=" w-full h-full " >
+    <div  data-theme="light" className=" w-full h-full" >
       <Provider store={appStore }>
       <BrowserRouter basename='/'>
       <Routes>

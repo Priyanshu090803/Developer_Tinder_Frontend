@@ -34,7 +34,7 @@ const Body = () => {  // hmara abhi tak refresh krne m feed page khulri thi even
   //   return<Error/>
   // }
   return (
-    <div className=' h-full w-full'>
+    <div className=' h-screen w-full overflow-y-auto scrollbar-hide'>
         <Navbar/>
         <Outlet/>
         <Footer/>

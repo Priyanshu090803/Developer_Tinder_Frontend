@@ -33,6 +33,7 @@ const EditProfile = ({user}) => {
       const saveProfile = async()=>{
         SetError("")
         try {
+        const skillsArray = skills ? skills.split(',').map(skill => skill.trim()).filter(skill => skill.length > 0) : [];
         const res= await axios.patch(BASE_URL+"/profile/edit",
             {
            firstName,
@@ -41,7 +42,7 @@ const EditProfile = ({user}) => {
            age,
            photoUrl,
            about,
-           skills 
+           skills:skillsArray
         },{withCredentials:true})
         dispatch(addUser(res?.data?.data))
         setToast(true)
@@ -49,7 +50,7 @@ const EditProfile = ({user}) => {
             setToast(false)
         }, 3000);
         } catch (error) {
-            // SetError(error.response.data)
+            SetError(error.response.data)
             console.log(error)
         }
 
