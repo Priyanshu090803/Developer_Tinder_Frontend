@@ -30,7 +30,7 @@ const Login = () => {
   const[loginError,SetLoginError] = useState("")
   const[photoUrl, setPhotoUrl]=useState(null)
   const[profilePreview,setProfilePreview]=useState(null)
-  const[isLogin,setIsLogin] = useState(false)
+  const[isLogin,setIsLogin] = useState(true)
   const handleLogin = async()=>{
    try {
     const res= await axios.post(BASE_URL+"/login",{

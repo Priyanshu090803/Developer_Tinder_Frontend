@@ -27,7 +27,7 @@ const Feed = () => {
 if (!users) return
 if(users.length ===0) return(<h2 className=' absolute left-1/2 -translate-x-1/2 top-30 text-2xl md:text-4xl text-red-600 uppercase text-center  font-bold'>No new users found</h2>)
 return (
-  <div className="relative h-full w-full overflow-y-scroll  scrollbar-hide snap-y snap-mandatory bg-gradient-to-b from-zinc-50 to-neutral-50 -mt-10">
+  <div className="relative h-screen w-full overflow-y-scroll  scrollbar-hide snap-y snap-mandatory bg-gradient-to-b from-zinc-50 to-neutral-50 -mt-10">
     {users.map((user) => (
       
       <UserCard key={user._id} user={user}/>

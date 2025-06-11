@@ -19,7 +19,6 @@ const Body = () => {  // hmara abhi tak refresh krne m feed page khulri thi even
       withCredentials:true
     })
     dispatch(addUser(res.data))
-    
   }catch(err){
    navigate("/login")
   }
@@ -30,9 +29,7 @@ const Body = () => {  // hmara abhi tak refresh krne m feed page khulri thi even
       fetchUser()
     }
   },[UserData])
-  // if(error){
-  //   return<Error/>
-  // }
+
   return (
     <div className=' h-screen w-full overflow-y-auto scrollbar-hide'>
         <Navbar/>
