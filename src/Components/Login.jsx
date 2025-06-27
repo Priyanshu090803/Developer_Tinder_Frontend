@@ -6,14 +6,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { cn } from '@/lib/utils'
+} from "./ui/card"
+import { Label } from "./ui/label"
+import { cn } from '../lib/utils.js'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
-import { addUser, removeUser } from '@/utils/userSlice'
+import { addUser } from '../utils/userSlice'
 import { useNavigate } from 'react-router-dom'
-import { BASE_URL_PRODUCTION } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '../utils/constants'
 
 
 
