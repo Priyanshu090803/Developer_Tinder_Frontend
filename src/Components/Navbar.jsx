@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '@/utils/constants'
 import { removeUser } from '@/utils/userSlice'
 import axios from 'axios'
 import React from 'react'
@@ -10,7 +10,7 @@ const Navbar = () => {
   const dispatch = useDispatch()
   const handleLogOut= async()=>{
     try {
-      await axios.post(BASE_URL+"/logout",{},{withCredentials:true})      
+      await axios.post(BASE_URL_PRODUCTION+"/logout",{},{withCredentials:true})      
       dispatch(removeUser())
     } catch (error) {
       console.error(error)

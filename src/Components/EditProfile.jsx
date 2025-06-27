@@ -1,10 +1,7 @@
 import React, { useState } from 'react'
-import { Button } from "@/components/ui/button"
 import {
   Card,
-  CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -13,7 +10,7 @@ import { Label } from "@/components/ui/label"
 import { cn } from '@/lib/utils'
 import UserCard from './UserCard'
 import axios from 'axios'
-import { BASE_URL } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '@/utils/constants'
 import { useDispatch } from 'react-redux'
 import { addUser } from '@/utils/userSlice'
 
@@ -34,7 +31,7 @@ const EditProfile = ({user}) => {
         SetError("")
         try {
         const skillsArray = skills ? skills.split(',').map(skill => skill.trim()).filter(skill => skill.length > 0) : [];
-        const res= await axios.patch(BASE_URL+"/profile/edit",
+        const res= await axios.patch(BASE_URL_PRODUCTION+"/profile/edit",
             {
            firstName,
            lastName,

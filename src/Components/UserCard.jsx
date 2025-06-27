@@ -1,4 +1,4 @@
-// import { BASE_URL } from '@/utils/constants'
+// import { BASE_URL_PRODUCTION } from '@/utils/constants'
 // import { removeUserFromFeed } from '@/utils/feedSlice'
 // import axios from 'axios'
 // import React from 'react'
@@ -8,7 +8,7 @@
 //   const dispatch = useDispatch()
 //    const handleSendRequest =async(status,_id)=>{ 
 //     try {
-//       const res = await axios.post(BASE_URL+"/sendConnectionReq/send/"+status+"/"+_id,{},{
+//       const res = await axios.post(BASE_URL_PRODUCTION+"/sendConnectionReq/send/"+status+"/"+_id,{},{
 //         withCredentials:true
 //       })
 //       dispatch(removeUserFromFeed(_id))
@@ -103,7 +103,7 @@
 
 // export default UserCard
 
-import { BASE_URL } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '@/utils/constants'
 import { removeUserFromFeed } from '@/utils/feedSlice'
 import axios from 'axios'
 import React from 'react'
@@ -113,7 +113,7 @@ const UserCard = ({user}) => {
   const dispatch = useDispatch()
    const handleSendRequest =async(status,_id)=>{ 
     try {
-      const res = await axios.post(BASE_URL+"/sendConnectionReq/send/"+status+"/"+_id,{},{
+      const res = await axios.post(BASE_URL_PRODUCTION+"/sendConnectionReq/send/"+status+"/"+_id,{},{
         withCredentials:true
       })
       dispatch(removeUserFromFeed(_id))

@@ -3,7 +3,6 @@ import {
   Card,
   CardAction,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -14,7 +13,7 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from '@/utils/userSlice'
 import { useNavigate } from 'react-router-dom'
-import { BASE_URL } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '@/utils/constants'
 
 
 
@@ -32,7 +31,7 @@ const Login = () => {
   const[isLogin,setIsLogin] = useState(true)
   const handleLogin = async()=>{
    try {
-    const res= await axios.post(BASE_URL+"/login",{
+    const res= await axios.post(BASE_URL_PRODUCTION+"/login",{
       email:emailId,
       password
     },{withCredentials:true})     // cookie milegi ye true krke
@@ -57,7 +56,7 @@ const Login = () => {
       formData.append('photoUrl', photoUrl)
     }
 
-    const res = await axios.post(BASE_URL + "/signup", formData, {
+    const res = await axios.post(BASE_URL_PRODUCTION + "/signup", formData, {
       withCredentials: true,
       headers: {
         'Content-Type': 'multipart/form-data'

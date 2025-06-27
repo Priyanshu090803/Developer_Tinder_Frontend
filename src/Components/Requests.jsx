@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '@/utils/constants'
 import { addRequest, removeRequest } from '@/utils/requestSlice'
 import axios from 'axios'
 import React, { useEffect } from 'react'
@@ -10,7 +10,7 @@ const Requests = () => {
  
   const reviewRequest =async(status,_id)=>{
     try {
-      const res = await axios.post(BASE_URL+"/request/review/"+status+"/"+_id,
+      const res = await axios.post(BASE_URL_PRODUCTION+"/request/review/"+status+"/"+_id,
         {},
         {withCredentials:true}
       ) 
@@ -21,7 +21,7 @@ const Requests = () => {
   }
   const fetchRequests=async()=>{
     try{
-      const res= await axios.get(BASE_URL+"/user/request/received",{
+      const res= await axios.get(BASE_URL_PRODUCTION+"/user/request/received",{
       withCredentials:true
     })
     console.log(res.data.data)

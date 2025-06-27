@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '@/utils/constants'
 import { createSocketConnection } from '@/utils/socket'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -16,7 +16,7 @@ const Chat = () => {
     const firstName = user?.firstName
     
     const fetchMessages= async()=>{
-      const chat = await axios.get(BASE_URL+"/chat/"+targetUserId,{
+      const chat = await axios.get(BASE_URL_PRODUCTION+"/chat/"+targetUserId,{
         withCredentials:true
       })
     const chatMessages= chat?.data?.messages.map((msg)=>{

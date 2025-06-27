@@ -1,5 +1,5 @@
 import { addConnections } from '@/utils/connectionSlice'
-import { BASE_URL } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '@/utils/constants'
 import axios from 'axios'
 import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -10,7 +10,7 @@ const Connections = () => {
   const userConnections = useSelector(store=>store.connections)
   const getConnections=async()=>{
     try{
-      const res= await axios.get(BASE_URL+"/user/connections",{
+      const res= await axios.get(BASE_URL_PRODUCTION+"/user/connections",{
       withCredentials:true
     })
     
