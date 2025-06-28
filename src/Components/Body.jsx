@@ -24,11 +24,17 @@ const Body = () => {  // hmara abhi tak refresh krne m feed page khulri thi even
   }
   
   }
-  useEffect(()=>{
-    if (!UserData) {
-      fetchUser()
+ 
+useEffect(() => {
+  const checkAuth = async () => {
+    try {
+      await fetchUser();
+    } catch (err) {
+      navigate('/login');
     }
-  },[UserData])
+  };
+  checkAuth();
+}, [navigate]);  
 
   return (
     <div className=' h-screen w-full overflow-y-auto scrollbar-hide'>

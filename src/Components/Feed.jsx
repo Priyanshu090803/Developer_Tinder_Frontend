@@ -8,7 +8,8 @@ import UserCard from './UserCard'
 const Feed = () => {
     const dispatch = useDispatch()
     const users = useSelector(store=>store.feed)
-
+    const UserData = useSelector(store=>store.user)
+    
   const userFeed = async()=>{
     try {
     const feed= await axios.get(BASE_URL_PRODUCTION+"/user/feed?page=1&limit=10", // get call m na dalke bhi chlega{} pr post call mai 2nd wala{} dalo hi dalo bhle hi kuch na post krre
@@ -21,6 +22,7 @@ const Feed = () => {
     }
   }
   useEffect(()=>{
+    if(!UserData) return
     userFeed()
   },[])
 if (!users) return
