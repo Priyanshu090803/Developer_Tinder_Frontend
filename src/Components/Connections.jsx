@@ -1,5 +1,5 @@
-import { addConnections } from '@/utils/connectionSlice'
-import { BASE_URL_PRODUCTION } from '@/utils/constants'
+import { addConnections } from '../utils/connectionSlice'
+import { BASE_URL_PRODUCTION } from '../utils/constants'
 import axios from 'axios'
 import React, { useEffect} from 'react'
 import { useDispatch, useSelector } from 'react-redux'

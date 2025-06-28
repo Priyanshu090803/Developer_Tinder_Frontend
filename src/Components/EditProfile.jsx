@@ -5,14 +5,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
+} from "./ui/card"
+import { Label } from "./ui/label"
 import { cn } from '@/lib/utils'
 import UserCard from './UserCard'
 import axios from 'axios'
-import { BASE_URL_PRODUCTION } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '../utils/constants'
 import { useDispatch } from 'react-redux'
-import { addUser } from '@/utils/userSlice'
+import { addUser } from '../utils/userSlice'
 
 
 const EditProfile = ({user}) => {

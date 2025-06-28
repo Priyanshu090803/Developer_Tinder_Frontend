@@ -14,7 +14,7 @@ import { useDispatch } from 'react-redux'
 import { addUser } from '../utils/userSlice'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL_PRODUCTION } from '../utils/constants'
-
+  
 
 
 const Login = () => {
@@ -35,7 +35,7 @@ const Login = () => {
       email:emailId,
       password
     },{withCredentials:true})     // cookie milegi ye true krke
-   
+    
     dispatch(addUser(res.data))   // ye dispatch login hone m lgega
     return navigate("/")
    } catch (error) {

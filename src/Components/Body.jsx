@@ -3,9 +3,9 @@ import Navbar from './Navbar'
 import {  Outlet, useNavigate } from 'react-router-dom'
 import Footer from './Footer'
 import axios from 'axios'
-import { BASE_URL_PRODUCTION } from '@/utils/constants'
+import { BASE_URL_PRODUCTION } from '../utils/constants'
 import { useDispatch, useSelector } from 'react-redux'
-import { addUser } from '@/utils/userSlice'
+import { addUser } from '../utils/userSlice'
 
 const Body = () => {  // hmara abhi tak refresh krne m feed page khulri thi even we having tokens.
                       // to ab jab hamare pas token honge to tab hi feed page m jaenge wrna login page mai.

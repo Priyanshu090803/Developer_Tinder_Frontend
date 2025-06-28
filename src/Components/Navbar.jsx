@@ -1,5 +1,5 @@
-import { BASE_URL_PRODUCTION } from '@/utils/constants'
-import { removeUser } from '@/utils/userSlice'
+import { BASE_URL_PRODUCTION } from '../utils/constants'
+import { removeUser } from '../utils/userSlice'
 import axios from 'axios'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
