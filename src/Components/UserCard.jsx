@@ -197,9 +197,9 @@ const UserCard = ({user}) => {
         </div>
 
         {/* Connection dots */}
-        <div className="absolute md:bottom-12 bottom-14 right-4 flex space-x-1 md:space-x-2">
+        <div className="absolute md:bottom-12 bottom-14 right-4 flex space-x-1 ">
           {[...Array(3)].map((_, i) => (
-            <div key={i} className="md:w-2 w-1 h-1 md:h-2 rounded-full bg-red-400 animate-pulse" style={{ animationDelay: `${i * 0.2}s` }}></div>
+            <div key={i} className=" w-1 h-1  rounded-full bg-red-400 animate-pulse" style={{ animationDelay: `${i * 0.2}s` }}></div>
           ))}
         </div>
       </div>

@@ -67,7 +67,7 @@ const Login = () => {
     })
     console.log(res.data)
     dispatch(addUser(res.data))
-    return navigate("/")
+    setTimeout(() => navigate("/"), 100)
   } catch (error) {
     console.log(error)
     SetLoginError(error?.response?.data || "Something went wrong")
@@ -206,7 +206,7 @@ const Login = () => {
         )}>
                  <input
               id='password'
-              className=" w-full outline-none "
+              className=" w-full outline-none rounded-2xl"
             type={showPassword?"text":"password"}
              placeholder='password'
              value={password}
