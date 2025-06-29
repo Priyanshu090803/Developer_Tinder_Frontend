@@ -1,5 +1,5 @@
-import { BASE_URL } from '@/utils/constants'
-import { addRequest, removeRequest } from '@/utils/requestSlice'
+import { BASE_URL } from '../utils/constants'
+import { addRequest, removeRequest } from '../utils/requestSlice'
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'

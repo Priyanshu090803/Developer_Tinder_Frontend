@@ -1,10 +1,9 @@
-import { BASE_URL } from '@/utils/constants'
-import { addFeed } from '@/utils/feedSlice'
+import { BASE_URL } from '../utils/constants'
+import { addFeed } from '../utils/feedSlice'
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import UserCard from './UserCard'
-import { User } from 'lucide-react'
 
 const Feed = () => {
     const dispatch = useDispatch()
