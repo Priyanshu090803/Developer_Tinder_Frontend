@@ -14,7 +14,6 @@ const Body = () => {  // hmara abhi tak refresh krne m feed page khulri thi even
   const UserData = useSelector(store=>store.user)
   const fetchUser = async()=>{
     try{
-    if(UserData)return
      const res = await axios.get(BASE_URL+"/profile/view",{
       withCredentials:true
     })

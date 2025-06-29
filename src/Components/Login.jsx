@@ -15,6 +15,7 @@ import { useDispatch } from 'react-redux'
 import { addUser, removeUser } from '@/utils/userSlice'
 import { useNavigate } from 'react-router-dom'
 import { BASE_URL } from '@/utils/constants'
+import { FaEye, FaRegEyeSlash } from 'react-icons/fa'
 
 
 
@@ -30,6 +31,7 @@ const Login = () => {
   const[photoUrl, setPhotoUrl]=useState(null)
   const[profilePreview,setProfilePreview]=useState(null)
   const[isLogin,setIsLogin] = useState(true)
+  const[showPassword,setShowPassword] = useState(false)
   const handleLogin = async()=>{
    try {
     const res= await axios.post(BASE_URL+"/login",{
@@ -175,10 +177,11 @@ const Login = () => {
             </>)
             }
             <div className="grid gap-4">
-              <Label htmlFor="email" className={' md:text-xl text-gray-600'}>Email</Label>
+              <label htmlFor="email" className={' md:text-xl text-gray-600'}>Email</label>
               <input
+              id='email'
               className={cn("file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1  shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-lg text-sm text-neutral-600 ",
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
+        // "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
         "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive")}
              placeholder='@example.com'
              value={emailId}
@@ -189,25 +192,31 @@ const Login = () => {
             </div>
             <div className="grid gap-4">
               <div className="flex items-center">
-                <Label htmlFor="password" className={' md:text-xl text-gray-600'}>Password</Label>
-                <a
+                <label htmlFor="password" className={' md:text-xl text-gray-600'}>Password</label>
+                {/* <a
                   href="#"
                   className="ml-auto inline-block text-xs md:text-sm underline-offset-4 hover:underline"
                 >
                   Forgot your password?
-                </a>
+                </a> */}
               </div>
-              <input
-              className={cn("file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-lg text-sm text-neutral-600  ",
+              <div className= {cn("file:text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground dark:bg-input/30 border-input flex h-9 w-full min-w-0 rounded-md border bg-transparent px-3 py-1 shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-lg text-sm text-neutral-600  ",
         "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px]",
-        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
-        )}
+        "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive w-full items-center",
+        )}>
+                 <input
+              id='password'
+              className=" w-full outline-none "
+            type={showPassword?"text":"password"}
              placeholder='password'
              value={password}
              onChange={(e)=>{
               setPassword(e.target.value)
              }}
               />
+              <span onClick={()=>setShowPassword(!showPassword)}>{showPassword?<FaRegEyeSlash/>:<FaEye/>}</span>
+              </div>
+             
             </div>
       <span className=' text-red-600 underline text-sm  md:text-base '>{loginError}</span>
 

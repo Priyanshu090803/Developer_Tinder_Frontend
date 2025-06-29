@@ -20,7 +20,9 @@ const Navbar = () => {
   return (
 <div className="sticky top-0 z-50 w-full md:px-10 px-4 shadow-sm rounded-lg py-2 h-16 flex justify-between bg-neutral-50/80 backdrop-blur-lg items-center">
   {/* Your navbar content */}
- <Link to={'/'} className=' md:text-lg text-sm font-bold -rotate-12 shadow-md md:p-2 p-1 active:scale-90 hover:scale-90 duration-300 delay-100 ease-in-out rounded-lg bg-gradient-to-r from-violet-100 to-blue-100 cursor-pointer text-neutral-500'>/H00man/</Link>
+ {loggedInUser&&<Link to={'/'} className=' md:text-lg text-sm font-bold -rotate-12 shadow-md md:p-2 p-1 active:scale-90 hover:scale-90 duration-300 delay-100 ease-in-out rounded-lg bg-gradient-to-r from-violet-100 to-blue-100 cursor-pointer text-neutral-500'>/H00man/</Link>}
+
+ {!loggedInUser&&<Link to={'/login'} className=' md:text-lg text-sm font-bold -rotate-12 shadow-md md:p-2 p-1 active:scale-90 hover:scale-90 duration-300 delay-100 ease-in-out rounded-lg bg-gradient-to-r from-violet-100 to-blue-100 cursor-pointer text-neutral-500'>/H00man/</Link>}
 
    {loggedInUser&&<div className="dropdown dropdown-end">
     <span className=' md:mr-6 text-xs md:text-base font-medium text-neutral-500'>Welcome {loggedInUser.firstName}</span>
